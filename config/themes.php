@@ -21,7 +21,7 @@ return [
             'views_path' => 'resources/themes/brucgt/views',
             'assets_path' => 'public/themes/brucgt/assets',
             'name' => 'brucgt',
-            'parent' => 'default'
+            'parent' => 'velocity'
         ],
     ],
 
