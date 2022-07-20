@@ -86,7 +86,7 @@ class PullRepo extends Command
     private function runPull()
     {
 
-        $process = new Process('git pull');
+        $process = new Process(['git', 'pull']);
         $this->info("Running 'git pull'");
 
         $process->run(function($type, $buffer) {
