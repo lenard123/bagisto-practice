@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -13,16 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('update-repo', function (Request $request) {
-	header('Access-Control-Allow-Origin: *');
-	header('Access-Control-Allow-Methods: *');
-	header('Access-Control-Allow-Headers: *');
-	return 'Nice';
+    Artisan::call('git:pull');
+	return 'Updated';
 })->middleware('cors');
 
 Route::post('update-repo', function (Request $request) {
-    	header('Access-Control-Allow-Origin: *');
-	header('Access-Control-Allow-Methods: *');
-	header('Access-Control-Allow-Headers: *');
-
-	return 'Nice';
+    Artisan::call('git:pull');
+	return 'Updated';
 })->middleware('cors');
