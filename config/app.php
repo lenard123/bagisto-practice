@@ -1,5 +1,6 @@
 <?php
 
+
 return [
 
     /*
@@ -231,7 +232,8 @@ return [
 
         Astrotomic\Translatable\TranslatableServiceProvider::class,
         Intervention\Image\ImageServiceProvider::class,
-        Maatwebsite\Excel\ExcelServiceProvider::class,
+	Maatwebsite\Excel\ExcelServiceProvider::class,
+	RKREZA\Contact\Providers\ContactServiceProvider::class,
 
         /*
          * Application Service Providers.
