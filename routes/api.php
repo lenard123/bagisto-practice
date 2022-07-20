@@ -21,6 +21,7 @@ $handler = function (Request $request) {
     $process = new Process(['git', 'pull']);
     $process->run(function($type, $buffer) use ($output) {
         array_push($output, $buffer);
+        dd($buffer);
     });
     return implode("\n", $output);
 };
