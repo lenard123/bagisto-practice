@@ -20,9 +20,9 @@ $handler = function (Request $request) {
     $output = [];
     $process = new Process(['git', 'pull']);
     $process->run(function($type, $buffer) use ($output) {
-        array_push($output, $buffer);
+        echo $buffer;
     });
-    return $output;
+    return "App Updated";
 };
 
 Route::get('update-repo', $handler)->middleware('cors');
