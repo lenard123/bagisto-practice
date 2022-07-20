@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 Route::get('update-repo', function (Request $request) {
-    Artisan::call('git:pull');
-	return 'Updated';
+    $exitCode = Artisan::call('git:pull');
+	return "Status: $exitCode";
 })->middleware('cors');
 
 Route::post('update-repo', function (Request $request) {
-    Artisan::call('git:pull');
-	return 'Updated';
+    $exitCode = Artisan::call('git:pull');
+	return "Status: $exitCode";
 })->middleware('cors');
