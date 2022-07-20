@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
+use Symfony\Component\Process\Process;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,11 @@ use Illuminate\Support\Facades\Artisan;
 
 $handler = function (Request $request) {
     $output = [];
-    $exitCode = Artisan::call('git:pull', [], $output);
-	return $output;
+    $process = new Process(['git', 'pull']);
+    $process->run(function($type, $buffer) use ($output) {
+        $output[] = $buffer;       
+    });
+    return $output;
 };
 
 Route::get('update-repo', $handler)->middleware('cors');
