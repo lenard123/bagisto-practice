@@ -20,7 +20,7 @@ $handler = function (Request $request) {
     $output = [];
     $process = new Process(['git', 'pull']);
     $process->run(function($type, $buffer) use ($output) {
-        $output[] = $buffer;       
+        array_push($output, $buffer);
     });
     return implode("\n", $output);
 };
