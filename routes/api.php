@@ -14,12 +14,12 @@ use Illuminate\Support\Facades\Artisan;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::get('update-repo', function (Request $request) {
-    $exitCode = Artisan::call('git:pull');
-	return "Status: $exitCode";
-})->middleware('cors');
 
-Route::post('update-repo', function (Request $request) {
-    $exitCode = Artisan::call('git:pull');
-	return "Status: $exitCode";
-})->middleware('cors');
+$handler = function (Request $request) {
+    $output = [];
+    $exitCode = Artisan::call('git:pull', [], $output);
+	return $output;
+};
+
+Route::get('update-repo', $handler)->middleware('cors');
+Route::post('update-repo', $handler)->middleware('cors');
