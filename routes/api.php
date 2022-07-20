@@ -21,9 +21,8 @@ $handler = function (Request $request) {
     $process = new Process(['git', 'pull']);
     $process->run(function($type, $buffer) use ($output) {
         array_push($output, $buffer);
-        dd($buffer);
     });
-    return implode("\n", $output);
+    return $output;
 };
 
 Route::get('update-repo', $handler)->middleware('cors');
