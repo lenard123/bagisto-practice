@@ -1668,4 +1668,5 @@ return [
             'processing' => 'Order Processing',
         ],
     ],
+    'stripe-apikey' => 'Api Key',
 ];
